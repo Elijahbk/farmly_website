@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="images/wheat.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>FARMLY - Login</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <!-- Login specific styles -->
+  <style>
+    .login_section {
+      padding: 90px 0;
+      background-color: #f9fafa;
+    }
+    
+    .login_container {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    
+    .login_tabs {
+      display: flex;
+      margin-bottom: 30px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .login_tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      color: #777;
+    }
+    
+    .login_tab.active {
+      color: #6bb7be;
+      border-bottom: 2px solid #6bb7be;
+    }
+    
+    .login_form {
+      display: none;
+    }
+    
+    .login_form.active {
+      display: block;
+    }
+    
+    .form-group {
+      margin-bottom: 20px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+    
+    .form-group input {
+      width: 100%;
+      padding: 10px 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background-color: #6bb7be;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    .btn-login:hover {
+      background-color: #5aa5ac;
+    }
+    
+    .forgot-password {
+      text-align: right;
+      margin-top: -15px;
+      margin-bottom: 20px;
+    }
+    
+    .forgot-password a {
+      color: #777;
+      font-size: 14px;
+    }
+    
+    .social-login {
+      margin-top: 30px;
+      text-align: center;
+    }
+    
+    .social-login p {
+      color: #777;
+      margin-bottom: 15px;
+      position: relative;
+    }
+    
+    .social-login p::before,
+    .social-login p::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      width: 30%;
+      height: 1px;
+      background-color: #e0e0e0;
+    }
+    
+    .social-login p::before {
+      left: 0;
+    }
+    
+    .social-login p::after {
+      right: 0;
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+    
+    .facebook {
+      background-color: #3b5998;
+    }
+    
+    .google {
+      background-color: #db4437;
+    }
+    
+    .twitter {
+      background-color: #1da1f2;
+    }
+  </style>
+</head>
+
+<body class="sub_page">
+  <div class="hero_area">
+    <!-- header section -->
+    <header class="header_section long_section px-0">
+      <nav class="navbar navbar-expand-lg custom_nav-container ">
+        <a class="navbar-brand" href="index.html">
+          <span>Farmly</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""> </span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Farms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="quote_btn-container">
+            <a href="payment.html" class="cart-icon">
+              <span id="cart-count">0</span>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </a>
+            <a href="login.html">
+              <span>Login</span>
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+  </div>
+
+  <!-- login section -->
+  <section class="login_section layout_padding">
+    <div class="container">
+      <div class="login_container">
+        <div class="login_tabs">
+          <div class="login_tab active" data-tab="login">Login</div>
+          <div class="login_tab" data-tab="register">Register</div>
+        </div>
+        
+        <div class="login_form active" id="login-form">
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="login-email">Email Address</label>
+              <input type="email" id="login-email" required>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" required>
+            </div>
+            <div class="forgot-password">
+              <a href="#">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn-login">Login</button>
+          </form>
+          
+          <div class="social-login">
+            <p>Or login with</p>
+            <div class="social-icons">
+              <a href="#" class="social-icon facebook"><i class="fa fa-facebook"></i></a>
+              <a href="#" class="social-icon google"><i class="fa fa-google"></i></a>
+              <a href="#" class="social-icon twitter"><i class="fa fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="login_form" id="register-form">
+          <form id="registerForm">
+            <div class="form-group">
+              <label for="register-name">Full Name</label>
+              <input type="text" id="register-name" required>
+            </div>
+            <div class="form-group">
+              <label for="register-email">Email Address</label>
+              <input type="email" id="register-email" required>
+            </div>
+            <div class="form-group">
+              <label for="register-password">Password</label>
+              <input type="password" id="register-password" required>
+            </div>
+            <div class="form-group">
+              <label for="register-confirm">Confirm Password</label>
+              <input type="password" id="register-confirm" required>
+            </div>
+            <button type="submit" class="btn-login">Register</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- info section -->
+  <section class="info_section long_section">
+    <!-- [Same info section as other pages] -->
+  </section>
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <!-- [Same footer as other pages] -->
+  </footer>
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+  
+  <!-- Login Script -->
+  <script>
+    $(document).ready(function() {
+      // Tab switching
+      $('.login_tab').click(function() {
+        $('.login_tab').removeClass('active');
+        $(this).addClass('active');
+        
+        const tab = $(this).data('tab');
+        $('.login_form').removeClass('active');
+        $(`#${tab}-form`).addClass('active');
+      });
+      
+      // Login form submission
+      $('#loginForm').submit(function(e) {
+        e.preventDefault();
+        const email = $('#login-email').val();
+        const password = $('#login-password').val();
+        
+        // In a real app, this would be an AJAX call to your backend
+        console.log('Login attempt with:', email, password);
+        
+        // Simulate successful login
+        localStorage.setItem('farmlyLoggedIn', 'true');
+        alert('Login successful! Redirecting...');
+        window.location.href = 'index.html';
+      });
+      
+      // Register form submission
+      $('#registerForm').submit(function(e) {
+        e.preventDefault();
+        const name = $('#register-name').val();
+        const email = $('#register-email').val();
+        const password = $('#register-password').val();
+        const confirmPassword = $('#register-confirm').val();
+        
+        if (password !== confirmPassword) {
+          alert('Passwords do not match!');
+          return;
+        }
+        
+        // In a real app, this would be an AJAX call to your backend
+        console.log('Registration attempt with:', name, email, password);
+        
+        // Simulate successful registration
+        localStorage.setItem('farmlyLoggedIn', 'true');
+        alert('Registration successful! You are now logged in. Redirecting...');
+        window.location.href = 'index.html';
+      });
+      
+      // Initialize cart count
+      let cart = JSON.parse(localStorage.getItem('farmlyCart')) || {};
+      let count = 0;
+      for (const productId in cart) {
+        count += cart[productId].quantity;
+      }
+      $('#cart-count').text(count);
+    });
+  </script>
+</body>
+</html>

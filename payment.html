@@ -1,0 +1,925 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="css/payment.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <form action="">
+            <div class="row">
+                <div class="column">
+                    <h3 class="title">Billing Address</h3>
+                    <div class="input-box">
+                        <span>Full Name :</span>
+                        <input type="text" placeholder="Jacob Aiden">
+                    </div>
+                    <div class="input-box">
+                        <span>Email :</span>
+                        <input type="email" placeholder="example@example.com">
+                    </div>
+                    <div class="input-box">
+                        <span>Address :</span>
+                        <input type="text" placeholder="Room - Street - Locality">
+                    </div>
+                    <div class="input-box">
+                        <span>City :</span>
+                        <input type="text" placeholder="Berlin">
+                    </div>
+
+                    <div class="flex">
+                        <div class="input-box">
+                            <span>State :</span>
+                            <input type="text" placeholder="Germany">
+                        </div>
+                        <div class="input-box">
+                            <span>Zip Code :</span>
+                            <input type="number" placeholder="123 456">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <h3 class="title">Payment</h3>
+                    <div class="input-box">
+                        <span>Cards Accepted :</span>
+                        <img src="images/imgcards.png" alt="">
+                    </div>
+                    <div class="input-box">
+                        <span>Name On Card :</span>
+                        <input type="text" placeholder="Mr. Jacob Aiden">
+                    </div>
+                    <div class="input-box">
+                        <span>Credit Card Number :</span>
+                        <input type="number" placeholder="1111 2222 3333 4444">
+                    </div>
+                    <div class="input-box">
+                        <span>Exp. Month :</span>
+                        <input type="text" placeholder="August">
+                    </div>
+                
+                    <div class="flex">
+                        <div class="input-box">
+                            <span>Exp. Year :</span>
+                            <input type="number" placeholder="2025">
+                        </div>
+                        <div class="input-box">
+                            <span>CVV :</span>
+                            <input type="number" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn">Submit</button>
+            <div class="Back">
+                <a href="index.html">
+                    Back
+                </a>
+            </div>
+            
+        </form>
+    </div>
+
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <link rel="icon" href="images/wheat.png" type="image/gif" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>FARMLY - Payment</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
+
+  <!-- font awesome style -->
+  <link href="css/font-awesome.min.css" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="css/responsive.css" rel="stylesheet" />
+
+  <!-- Payment specific styles -->
+  <style>
+    .payment_section {
+      background-color: #f9fafa;
+      padding: 60px 0;
+    }
+    
+    .payment_container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
+    }
+    
+    .payment_method {
+      margin-bottom: 25px;
+    }
+    
+    .payment_method img {
+      height: 40px;
+      margin: 0 10px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: all 0.3s;
+    }
+    
+    .payment_method img.active {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    
+    .card-input {
+      width: 100%;
+      border: 1px solid #e0e0e0;
+      height: 50px;
+      margin-bottom: 20px;
+      padding-left: 15px;
+      outline: none;
+      color: #101010;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+    
+    .card-input:focus {
+      border-color: #6bb7be;
+      box-shadow: 0 0 5px rgba(107, 183, 190, 0.3);
+    }
+    
+    .payment_summary {
+      background-color: #f7fafa;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    
+    .payment_item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .payment_total {
+      font-weight: bold;
+      padding-top: 15px;
+      font-size: 18px;
+    }
+    
+    .btn_payment {
+      display: inline-block;
+      padding: 12px 35px;
+      background-color: #6bb7be;
+      color: #ffffff;
+      border-radius: 4px;
+      border: 1px solid #6bb7be;
+      transition: all .2s;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 15px;
+    }
+    
+    .btn_payment:hover {
+      background-color: #f89646;
+      border-color: #f89646;
+    }
+    
+    .cc-icons {
+      position: absolute;
+      right: 30px;
+      top: 12px;
+    }
+    
+    .form-group {
+      position: relative;
+    }
+    
+    .secure-badge {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: #4a4a4a;
+      margin-top: 15px;
+    }
+    
+    .secure-badge i {
+      color: #6bb7be;
+      margin-right: 5px;
+    }
+    
+    #card-errors {
+      color: #e74c3c;
+      font-size: 14px;
+      margin-top: -15px;
+      margin-bottom: 15px;
+    }
+    
+    .payment-success {
+      text-align: center;
+      padding: 30px;
+      display: none;
+    }
+    
+    .payment-success i {
+      font-size: 80px;
+      color: #27ae60;
+      margin-bottom: 20px;
+    }
+    
+    .input-group {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .input-group .form-group {
+      flex: 1;
+    }
+
+    /* Cart item styles */
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .cart-item-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 4px;
+      margin-right: 15px;
+    }
+
+    .cart-item-details {
+      flex: 1;
+    }
+
+    .cart-item-title {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .cart-item-price {
+      color: #6bb7be;
+      font-weight: 600;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+    }
+
+    .quantity-btn {
+      width: 30px;
+      height: 30px;
+      background-color: #f5f5f5;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quantity-input {
+      width: 40px;
+      text-align: center;
+      margin: 0 5px;
+      border: 1px solid #e0e0e0;
+      border-radius: 4px;
+      padding: 5px;
+    }
+
+    .remove-item {
+      color: #e74c3c;
+      cursor: pointer;
+      margin-left: 15px;
+    }
+
+    .empty-cart {
+      text-align: center;
+      padding: 30px;
+      color: #777;
+    }
+
+    .cart-buttons {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .btn-continue {
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    .btn-continue:hover {
+      background-color: #e0e0e0;
+    }
+
+    @media (max-width: 768px) {
+      .input-group {
+        flex-direction: column;
+        gap: 0;
+      }
+      
+      .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      
+      .quantity-control {
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section long_section px-0">
+      <nav class="navbar navbar-expand-lg custom_nav-container">
+        <a class="navbar-brand" href="index.html">
+          <span>Farmly</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class=""></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="product.html">Products</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Farms</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+          <div class="quote_btn-container">
+            <a href="" class="cart-icon">
+              <span id="cart-count">0</span>
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </a>
+            <a href="login.html">
+              <span>Login</span>
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- payment section -->
+  <section class="payment_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>Your Shopping Cart</h2>
+        <p>Review your items and proceed to checkout</p>
+      </div>
+
+      <div class="row">
+        <!-- Cart Items -->
+        <div class="col-lg-8">
+          <div class="payment_container" id="cart-items-container">
+            <!-- Cart items will be dynamically inserted here -->
+            <div class="empty-cart">
+              <i class="fa fa-shopping-cart fa-3x" style="margin-bottom: 15px;"></i>
+              <h4>Your cart is empty</h4>
+              <p>Looks like you haven't added any items to your cart yet.</p>
+              <a href="product.html" class="btn_payment">Continue Shopping</a>
+            </div>
+          </div>
+
+          <!-- Payment Form (Initially Hidden) -->
+          <div class="payment_container" id="payment-form-container" style="display: none;">
+            <form id="payment-form">
+              <h5>Order Information</h5>
+              <div class="form-group">
+                <input type="text" class="card-input" placeholder="Full Name" id="name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="card-input" placeholder="Email Address" id="email" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="card-input" placeholder="Delivery Address" id="address" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" class="card-input" placeholder="Phone Number" id="phone" required>
+              </div>
+
+              <h5 class="mt-4">Payment Method</h5>
+              <div class="payment_method">
+                <div class="mb-3">
+                  <input type="radio" id="creditCard" name="paymentMethod" value="creditCard" checked>
+                  <label for="creditCard">Credit Card</label>
+                  <input type="radio" id="paypal" name="paymentMethod" value="paypal" class="ml-3">
+                  <label for="paypal">PayPal</label>
+                </div>
+                <div id="creditCardImages">
+                  <img src="images/payment.png" alt="Mastercard" class="payment-type" data-type="mastercard">
+                </div>
+              </div>
+
+              <div id="creditCardForm">
+                <div class="form-group">
+                  <input type="text" class="card-input" id="cardNumber" placeholder="Card Number" maxlength="19">
+                  <span class="cc-icons">
+                    <i class="fa fa-cc-visa"></i>
+                    <i class="fa fa-cc-mastercard"></i>
+                  </span>
+                </div>
+                <div id="card-errors"></div>
+
+                <div class="input-group">
+                  <div class="form-group">
+                    <input type="text" class="card-input" id="cardName" placeholder="Cardholder Name">
+                  </div>
+                </div>
+
+                <div class="input-group">
+                  <div class="form-group">
+                    <input type="text" class="card-input" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="card-input" id="cvv" placeholder="CVV" maxlength="3">
+                  </div>
+                </div>
+
+                <div class="secure-badge">
+                  <i class="fa fa-lock"></i> Your payment information is encrypted and secure
+                </div>
+              </div>
+
+              <div id="paypalForm" style="display:none;">
+                <div class="text-center mt-4 mb-4">
+                  <p>You will be redirected to PayPal to complete your payment.</p>
+                  <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-large.png" alt="PayPal Checkout" style="max-width: 200px;">
+                </div>
+              </div>
+
+              <button type="submit" id="submit-button" class="btn_payment">
+                Complete Payment <i class="fa fa-lock ml-2"></i>
+              </button>
+            </form>
+
+            <!-- Success Message (Hidden Initially) -->
+            <div class="payment-success" id="payment-success">
+              <i class="fa fa-check-circle"></i>
+              <h3>Payment Successful!</h3>
+              <p>Your order has been placed successfully. You will receive a confirmation email shortly.</p>
+              <a href="index.html" class="btn btn1 mt-3">Return to Home</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary -->
+        <div class="col-lg-4">
+          <div class="payment_container" id="order-summary-container">
+            <h5>Order Summary</h5>
+            <div class="payment_summary">
+              <div id="order-items">
+                <!-- Order items will be dynamically inserted here -->
+                <div class="empty-cart">
+                  <p>No items in cart</p>
+                </div>
+              </div>
+              <div class="payment_item">
+                <span>Subtotal</span>
+                <span id="subtotal">$0.00</span>
+              </div>
+              <div class="payment_item">
+                <span>Delivery Fee</span>
+                <span id="delivery-fee">$2.00</span>
+              </div>
+              <div class="payment_total">
+                <span>Total</span>
+                <span id="total">$2.00</span>
+              </div>
+              
+              <div id="checkout-buttons" style="display: none;">
+                <button id="proceed-checkout" class="btn_payment mt-3">
+                  Proceed to Checkout
+                </button>
+                <a href="product.html" class="btn_payment btn-continue mt-2">
+                  Continue Shopping
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end payment section -->
+
+  <!-- info section -->
+  <section class="info_section long_section">
+    <div class="container">
+      <div class="contact_nav">
+        <a href="">
+          <i class="fa fa-phone" aria-hidden="true"></i>
+          <span>Call : +250780000000</span>
+        </a>
+        <a href="">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <span>Email : farmly@gmail.com</span>
+        </a>
+        <a href="">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <span>Location</span>
+        </a>
+      </div>
+
+      <div class="info_top">
+        <div class="row">
+          <div class="col-sm-6 col-md-4 col-lg-3">
+            <div class="info_links">
+              <h4>QUICK LINKS</h4>
+              <div class="info_links_menu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="product.html">Products</a>
+                <a href="blog.html">Farms</a>
+                <a href="contact.html">Contact Us</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="info_form">
+              <h4>SIGN UP TO OUR NEWSLETTER</h4>
+              <form action="">
+                <input type="text" placeholder="Enter Your Email" />
+                <button type="submit">Subscribe</button>
+              </form>
+              <div class="social_box">
+                <a href="">
+                  <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-linkedin" aria-hidden="true"></i>
+                </a>
+                <a href="">
+                  <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <footer class="footer_section">
+    <div class="container">
+      <p>&copy; <span id="displayYear"></span> All Rights Reserved By Farmly Co</p>
+    </div>
+  </footer>
+  <!-- footer section -->
+
+  <!-- jQery -->
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <!-- bootstrap js -->
+  <script src="js/bootstrap.js"></script>
+  <!-- custom js -->
+  <script src="js/custom.js"></script>
+
+  <!-- Shopping Cart and Payment Script -->
+  <script>
+    $(document).ready(function() {
+      // Initialize cart from localStorage or create empty cart
+      let cart = JSON.parse(localStorage.getItem('farmlyCart')) || {};
+      updateCartDisplay();
+      updateCartCount();
+      
+      // Format card number with spaces
+      $('#cardNumber').on('input', function() {
+        let value = $(this).val().replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        let formattedValue = '';
+        for (let i = 0; i < value.length; i++) {
+          if (i > 0 && i % 4 === 0) {
+            formattedValue += ' ';
+          }
+          formattedValue += value[i];
+        }
+        $(this).val(formattedValue);
+        
+        // Validate and show card type
+        validateCardNumber(value);
+      });
+
+      // Format expiry date
+      $('#expiryDate').on('input', function() {
+        let value = $(this).val().replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+        if (value.length > 2) {
+          value = value.substring(0, 2) + '/' + value.substring(2, 4);
+        }
+        $(this).val(value);
+      });
+
+      // Toggle payment methods
+      $('input[name="paymentMethod"]').change(function() {
+        if ($(this).val() === 'creditCard') {
+          $('#creditCardForm').show();
+          $('#paypalForm').hide();
+          $('#submit-button').html('Complete Payment <i class="fa fa-lock ml-2"></i>');
+        } else {
+          $('#creditCardForm').hide();
+          $('#paypalForm').show();
+          $('#submit-button').html('Continue to PayPal <i class="fa fa-paypal ml-2"></i>');
+        }
+      });
+
+      // Card type selection
+      $('.payment-type').click(function() {
+        $('.payment-type').removeClass('active');
+        $(this).addClass('active');
+      });
+
+      // Proceed to checkout button
+      $('#proceed-checkout').click(function() {
+        $('#cart-items-container').hide();
+        $('#payment-form-container').show();
+      });
+
+      // Form submission
+      $('#payment-form').submit(function(e) {
+        e.preventDefault();
+        
+        // Basic validation
+        let isValid = true;
+        const cardNumber = $('#cardNumber').val().replace(/\s+/g, '');
+        const expiryDate = $('#expiryDate').val();
+        const cvv = $('#cvv').val();
+        
+        // Clear previous errors
+        $('#card-errors').text('');
+        
+        if ($('input[name="paymentMethod"]:checked').val() === 'creditCard') {
+          // Card validation
+          if (!validateCardNumber(cardNumber)) {
+            isValid = false;
+          }
+          
+          // Expiry validation
+          if (!expiryDate || expiryDate.length !== 5) {
+            $('#card-errors').text('Please enter a valid expiry date (MM/YY)');
+            isValid = false;
+          } else {
+            const month = parseInt(expiryDate.split('/')[0]);
+            const year = parseInt('20' + expiryDate.split('/')[1]);
+            const now = new Date();
+            const currentYear = now.getFullYear();
+            const currentMonth = now.getMonth() + 1;
+            
+            if (month < 1 || month > 12 || 
+                year < currentYear || 
+                (year === currentYear && month < currentMonth)) {
+              $('#card-errors').text('Your card has expired');
+              isValid = false;
+            }
+          }
+          
+          // CVV validation
+          if (!cvv || cvv.length < 3) {
+            $('#card-errors').text('Please enter a valid CVV code');
+            isValid = false;
+          }
+        }
+        
+        if (isValid) {
+          // Simulate processing
+          const $btn = $('#submit-button');
+          $btn.prop('disabled', true).html('<i class="fa fa-spinner fa-spin"></i> Processing...');
+          
+          // In a real environment, this would be an AJAX call to your backend
+          setTimeout(function() {
+            $('#payment-form').hide();
+            $('#payment-success').fadeIn();
+            
+            // Clear cart after successful payment
+            cart = {};
+            localStorage.setItem('farmlyCart', JSON.stringify(cart));
+            updateCartCount();
+          }, 2000);
+        }
+      });
+      
+      function validateCardNumber(number) {
+        // Basic Luhn algorithm for card validation
+        if (!number || number.length < 13) {
+          $('#card-errors').text('Please enter a valid card number');
+          return false;
+        }
+        
+        // Check card type
+        let cardType = '';
+        if (/^4/.test(number)) {
+          cardType = 'visa';
+        } else if (/^5[1-5]/.test(number)) {
+          cardType = 'mastercard';
+        } else {
+          $('#card-errors').text('We only accept Visa and Mastercard');
+          return false;
+        }
+        
+        // Update UI to show card type
+        $('.payment-type').removeClass('active');
+        $(`.payment-type[data-type="${cardType}"]`).addClass('active');
+        
+        // Luhn algorithm
+        let sum = 0;
+        let shouldDouble = false;
+        
+        // Loop through values starting from the rightmost digit
+        for (let i = number.length - 1; i >= 0; i--) {
+          let digit = parseInt(number.charAt(i));
+          
+          if (shouldDouble) {
+            digit *= 2;
+            if (digit > 9) digit -= 9;
+          }
+          
+          sum += digit;
+          shouldDouble = !shouldDouble;
+        }
+        
+        const valid = (sum % 10) === 0;
+        if (!valid) {
+          $('#card-errors').text('Invalid card number');
+        }
+        
+        return valid;
+      }
+      
+      function updateCartDisplay() {
+        const cartItemsContainer = $('#cart-items-container');
+        const orderItemsContainer = $('#order-items');
+        const cartItemCount = Object.keys(cart).length;
+        
+        // Update cart items display
+        if (cartItemCount === 0) {
+          cartItemsContainer.html(`
+            <div class="empty-cart">
+              <i class="fa fa-shopping-cart fa-3x" style="margin-bottom: 15px;"></i>
+              <h4>Your cart is empty</h4>
+              <p>Looks like you haven't added any items to your cart yet.</p>
+              <a href="product.html" class="btn_payment">Continue Shopping</a>
+            </div>
+          `);
+          $('#payment-form-container').hide();
+          $('#checkout-buttons').hide();
+        } else {
+          let cartItemsHtml = '';
+          let orderItemsHtml = '';
+          let subtotal = 0;
+          
+          for (const productId in cart) {
+            const item = cart[productId];
+            const itemTotal = item.price * item.quantity;
+            subtotal += itemTotal;
+            
+            cartItemsHtml += `
+              <div class="cart-item" data-product-id="${productId}">
+                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                <div class="cart-item-details">
+                  <div class="cart-item-title">${item.name}</div>
+                  <div class="cart-item-price">$${item.price.toFixed(2)} per KG</div>
+                  <div class="quantity-control">
+                    <button class="quantity-btn minus" data-product-id="${productId}">-</button>
+                    <input type="number" class="quantity-input" value="${item.quantity}" min="1" data-product-id="${productId}">
+                    <button class="quantity-btn plus" data-product-id="${productId}">+</button>
+                    <span class="remove-item" data-product-id="${productId}">
+                      <i class="fa fa-trash"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="cart-item-total">
+                  $${itemTotal.toFixed(2)}
+                </div>
+              </div>
+            `;
+            
+            orderItemsHtml += `
+              <div class="payment_item">
+                <span>${item.name} (${item.quantity} KG)</span>
+                <span>$${itemTotal.toFixed(2)}</span>
+              </div>
+            `;
+          }
+          
+          cartItemsContainer.html(cartItemsHtml);
+          orderItemsContainer.html(orderItemsHtml);
+          
+          // Calculate totals
+          const deliveryFee = 2.00;
+          const total = subtotal + deliveryFee;
+          
+          $('#subtotal').text('$' + subtotal.toFixed(2));
+          $('#delivery-fee').text('$' + deliveryFee.toFixed(2));
+          $('#total').text('$' + total.toFixed(2));
+          
+          // Show checkout buttons
+          $('#checkout-buttons').show();
+          
+          // Set up event listeners for the dynamically created elements
+          $('.quantity-btn.minus').click(function() {
+            const productId = $(this).data('product-id');
+            const currentQuantity = cart[productId].quantity;
+            updateQuantity(productId, currentQuantity - 1);
+          });
+          
+          $('.quantity-btn.plus').click(function() {
+            const productId = $(this).data('product-id');
+            const currentQuantity = cart[productId].quantity;
+            updateQuantity(productId, currentQuantity + 1);
+          });
+          
+          $('.quantity-input').change(function() {
+            const productId = $(this).data('product-id');
+            const newQuantity = parseInt($(this).val()) || 1;
+            updateQuantity(productId, newQuantity);
+          });
+          
+          $('.remove-item').click(function() {
+            const productId = $(this).data('product-id');
+            removeFromCart(productId);
+          });
+        }
+      }
+      
+      function updateQuantity(productId, newQuantity) {
+        if (newQuantity < 1) {
+          removeFromCart(productId);
+          return;
+        }
+        
+        cart[productId].quantity = newQuantity;
+        localStorage.setItem('farmlyCart', JSON.stringify(cart));
+        updateCartDisplay();
+        updateCartCount();
+      }
+      
+      function removeFromCart(productId) {
+        delete cart[productId];
+        localStorage.setItem('farmlyCart', JSON.stringify(cart));
+        updateCartDisplay();
+        updateCartCount();
+      }
+      
+      function updateCartCount() {
+        let count = 0;
+        for (const productId in cart) {
+          count += cart[productId].quantity;
+        }
+        $('#cart-count').text(count);
+      }
+    });
+  </script>
+</body>
+</html>
