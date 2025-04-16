@@ -31,6 +31,7 @@ Farmly is an e-commerce platform connecting farmers directly with consumers, off
 [Live Demo](https://youtu.be/5YKOtZkW58Q)
 
 ![Screenshot](images/screenshot.png)
+![Products](images/Screenshot1.png)
 
 ## Installation
 
